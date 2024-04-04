@@ -26,7 +26,23 @@ import Alamofire
 import Foundation
 import XCTest
 
+import OpenTelemetryApi
+import OpenTelemetrySdk
+import StdoutExporter
+import URLSessionInstrumentation
+
 class BaseTestCase: XCTestCase {
+    static let networkInstrumentation: URLSessionInstrumentation = {
+        let spanProcessor = SimpleSpanProcessor(spanExporter: StdoutExporter())
+        OpenTelemetry.registerTracerProvider(tracerProvider:
+            TracerProviderBuilder()
+                .add(spanProcessor: spanProcessor)
+                .build()
+        )
+
+        return URLSessionInstrumentation(configuration: URLSessionInstrumentationConfiguration())
+    }()
+    
     enum SkipVersion {
         case twenty
         case none
@@ -69,6 +85,7 @@ class BaseTestCase: XCTestCase {
     private var session: Session?
 
     override func setUp() {
+        let _ = BaseTestCase.networkInstrumentation
         FileManager.createDirectory(at: testDirectoryURL)
 
         super.setUp()

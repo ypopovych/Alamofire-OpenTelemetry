@@ -565,6 +565,10 @@
 		4CFB030F1D7D2FA20056F249 /* utf8_string.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB02F41D7D2FA20056F249 /* utf8_string.txt */; };
 		4DD67C251A5C590000ED2280 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897FF4019AA800700AB5182 /* Alamofire.swift */; };
 		8035DB621BAB492500466CB3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8111E3319A95C8B0040E7D1 /* Alamofire.framework */; };
+		A7E232CE2BBEF3610087D8F8 /* OpenTelemetryApi in Frameworks */ = {isa = PBXBuildFile; productRef = A7E232CD2BBEF3610087D8F8 /* OpenTelemetryApi */; };
+		A7E232D02BBEF3610087D8F8 /* OpenTelemetrySdk in Frameworks */ = {isa = PBXBuildFile; productRef = A7E232CF2BBEF3610087D8F8 /* OpenTelemetrySdk */; };
+		A7E232D22BBEF3610087D8F8 /* StdoutExporter in Frameworks */ = {isa = PBXBuildFile; productRef = A7E232D12BBEF3610087D8F8 /* StdoutExporter */; };
+		A7E232D42BBEF3610087D8F8 /* URLSessionInstrumentation in Frameworks */ = {isa = PBXBuildFile; productRef = A7E232D32BBEF3610087D8F8 /* URLSessionInstrumentation */; };
 		E4202FD01B667AA100C997FB /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2724E1AF88FB500F1D59A /* ParameterEncoding.swift */; };
 		E4202FD21B667AA100C997FB /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE2C451AF89FF300BABAE5 /* ResponseSerialization.swift */; };
 		E4202FD41B667AA100C997FB /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897FF4019AA800700AB5182 /* Alamofire.swift */; };
@@ -839,7 +843,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E232D02BBEF3610087D8F8 /* OpenTelemetrySdk in Frameworks */,
 				8035DB621BAB492500466CB3 /* Alamofire.framework in Frameworks */,
+				A7E232D22BBEF3610087D8F8 /* StdoutExporter in Frameworks */,
+				A7E232D42BBEF3610087D8F8 /* URLSessionInstrumentation in Frameworks */,
+				A7E232CE2BBEF3610087D8F8 /* OpenTelemetryApi in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1383,6 +1391,8 @@
 			dependencies = (
 			);
 			name = "Alamofire iOS";
+			packageProductDependencies = (
+			);
 			productName = Alamofire;
 			productReference = F8111E3319A95C8B0040E7D1 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1398,9 +1408,19 @@
 			buildRules = (
 			);
 			dependencies = (
+				A7E232C62BBEF3480087D8F8 /* PBXTargetDependency */,
+				A7E232C82BBEF3480087D8F8 /* PBXTargetDependency */,
+				A7E232CA2BBEF3480087D8F8 /* PBXTargetDependency */,
+				A7E232CC2BBEF3480087D8F8 /* PBXTargetDependency */,
 				F8111E6619A967880040E7D1 /* PBXTargetDependency */,
 			);
 			name = "Alamofire iOS Tests";
+			packageProductDependencies = (
+				A7E232CD2BBEF3610087D8F8 /* OpenTelemetryApi */,
+				A7E232CF2BBEF3610087D8F8 /* OpenTelemetrySdk */,
+				A7E232D12BBEF3610087D8F8 /* StdoutExporter */,
+				A7E232D32BBEF3610087D8F8 /* URLSessionInstrumentation */,
+			);
 			productName = AlamofireTests;
 			productReference = F8111E3E19A95C8B0040E7D1 /* Alamofire iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1483,6 +1503,9 @@
 				Base,
 			);
 			mainGroup = F8111E2919A95C8B0040E7D1;
+			packageReferences = (
+				A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */,
+			);
 			productRefGroup = F8111E3419A95C8B0040E7D1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2228,6 +2251,22 @@
 			target = 4CF626EE1BA7CB3E0011A099 /* Alamofire tvOS */;
 			targetProxy = 4CF626FA1BA7CB3E0011A099 /* PBXContainerItemProxy */;
 		};
+		A7E232C62BBEF3480087D8F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A7E232C52BBEF3480087D8F8 /* OpenTelemetryApi */;
+		};
+		A7E232C82BBEF3480087D8F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A7E232C72BBEF3480087D8F8 /* OpenTelemetrySdk */;
+		};
+		A7E232CA2BBEF3480087D8F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A7E232C92BBEF3480087D8F8 /* StdoutExporter */;
+		};
+		A7E232CC2BBEF3480087D8F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A7E232CB2BBEF3480087D8F8 /* URLSessionInstrumentation */;
+		};
 		F8111E6619A967880040E7D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8111E3219A95C8B0040E7D1 /* Alamofire iOS */;
@@ -2690,6 +2729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2709,6 +2749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2857,6 +2898,60 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/open-telemetry/opentelemetry-swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A7E232C52BBEF3480087D8F8 /* OpenTelemetryApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetryApi;
+		};
+		A7E232C72BBEF3480087D8F8 /* OpenTelemetrySdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetrySdk;
+		};
+		A7E232C92BBEF3480087D8F8 /* StdoutExporter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = StdoutExporter;
+		};
+		A7E232CB2BBEF3480087D8F8 /* URLSessionInstrumentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = URLSessionInstrumentation;
+		};
+		A7E232CD2BBEF3610087D8F8 /* OpenTelemetryApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetryApi;
+		};
+		A7E232CF2BBEF3610087D8F8 /* OpenTelemetrySdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetrySdk;
+		};
+		A7E232D12BBEF3610087D8F8 /* StdoutExporter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = StdoutExporter;
+		};
+		A7E232D32BBEF3610087D8F8 /* URLSessionInstrumentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7E232BC2BBEF31B0087D8F8 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = URLSessionInstrumentation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F8111E2A19A95C8B0040E7D1 /* Project object */;
 }
